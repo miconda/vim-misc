@@ -31,6 +31,33 @@ if &t_Co > 2 || has("gui_running")
 	set hlsearch		" search as characters are entered
 endif
 
+" enable the new filetype and indent plugins
+filetype on
+filetype plugin on
+filetype indent on		" load filetype-specific indent files
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+
+	" Enable file type detection.
+	" Use the default filetype settings, so that mail gets 'tw' set to 72,
+	" 'cindent' is on in C files, etc.
+	" Also load indent files, to automatically do language-dependent indenting.
+	filetype plugin indent on
+
+	" For all text files set 'textwidth' to 78 characters.
+	autocmd FileType text setlocal textwidth=80
+
+	" When editing a file, always jump to the last known cursor position.
+	" Don't do it when the position is invalid or when inside an event handler
+	" (happens when dropping a file on gvim).
+	autocmd BufReadPost *
+		\ if line("'\"") > 0 && line("'\"") <= line("$") |
+		\   exe "normal g`\"" |
+		\ endif
+
+endif " has("autocmd")
+
 set wildmenu            " visual autocomplete for command menu
 set wildmode=full
 set cmdheight=2
