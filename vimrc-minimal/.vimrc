@@ -18,7 +18,7 @@ set nomodeline		" do not read settings from bottom of edited files
 
 set showmode		" show current mode in status line
 " set number		" show line number
-" set cursorline	" show a line under cursor
+set cursorline	" show a line under cursor
 
 " new commands addedd
 set esckeys			" allow cursor keys in insert mode
