@@ -10,6 +10,7 @@ set copyindent
 set tabstop=4		" tabs are always 4 characters!!!
 set softtabstop=4	" default character indentation level
 set shiftwidth=4	" shift width
+set shiftround		" indent to next multiple of 'shiftwidth'
 
 set writebackup		" keep backup when editing
 set history=500		" keep 500 lines of command line history
